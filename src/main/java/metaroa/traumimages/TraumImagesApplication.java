@@ -28,7 +28,11 @@ public class TraumImagesApplication {
 					.antMatchers(HttpMethod.POST,"/login").permitAll()
 					.antMatchers(HttpMethod.POST,"/register").permitAll()
 					.antMatchers(HttpMethod.POST,"/confirm").permitAll()
-					.antMatchers(HttpMethod.POST,"/logUserOut").hasAnyAuthority("OrdinaryUser");
+					.antMatchers(HttpMethod.POST,"/logUserOut").hasAnyAuthority("OrdinaryUser","Financial","SuperAdmin")
+					.antMatchers(HttpMethod.GET,"/listPlans").permitAll()
+					.antMatchers(HttpMethod.PUT,"/modifyPlan/*").hasAnyAuthority("Financial","SuperAdmin")
+					.antMatchers(HttpMethod.POST, "/newPlan").hasAnyAuthority("Financial","SuperAdmin")
+					.antMatchers(HttpMethod.DELETE,"/deletePlan/*").hasAnyAuthority("Financial","SuperAdmin");
 		}
 	}
 }

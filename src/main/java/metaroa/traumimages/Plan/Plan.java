@@ -1,4 +1,4 @@
-package metaroa.traumimages;
+package metaroa.traumimages.Plan;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

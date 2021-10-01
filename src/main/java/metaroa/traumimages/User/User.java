@@ -2,7 +2,7 @@ package metaroa.traumimages.User;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import metaroa.traumimages.Plan;
+import metaroa.traumimages.Plan.Plan;
 import metaroa.traumimages.Roles.Roles;
 import metaroa.traumimages.Website;
 
