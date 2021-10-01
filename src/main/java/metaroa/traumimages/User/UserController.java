@@ -5,6 +5,7 @@ import metaroa.traumimages.assistants.Assistant;
 import metaroa.traumimages.assistants.Password;
 import metaroa.traumimages.dto.*;
 import metaroa.traumimages.errorHandling.IncorrectCredentials;
+import metaroa.traumimages.errorHandling.InternalServerError;
 import metaroa.traumimages.errorHandling.NotFoundException;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -75,5 +77,23 @@ public class UserController {
             repository.save(toLogOut);
         }
         return message;
+    }
+
+    @PostMapping("/assignRole")
+    public SimpleMessageResponse assignRole(@RequestBody AssignRoleDTO payload){
+        Optional<User> check = repository.findById(payload.getUserId());
+        if(check.isPresent()){
+            User toEffect = check.get();
+            toEffect.setRoles(payload.getRole());
+            try{
+                repository.save(toEffect);
+                SimpleMessageResponse message = new SimpleMessageResponse("role assigned successfully");
+                return message;
+            }catch (Exception ex){
+                throw new InternalServerError();
+            }
+        }else{
+            throw new NotFoundException();
+        }
     }
 }

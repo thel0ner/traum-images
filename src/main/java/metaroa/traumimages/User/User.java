@@ -2,6 +2,7 @@ package metaroa.traumimages.User;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import metaroa.traumimages.Paypal.PaypalOrder;
 import metaroa.traumimages.Plan.Plan;
 import metaroa.traumimages.Roles.Roles;
 import metaroa.traumimages.Website;
@@ -25,6 +26,9 @@ public class User {
 
     @OneToOne(mappedBy = "user")
     private Plan plan;
+
+    @OneToOne(mappedBy = "user")
+    private PaypalOrder order;
 
     @Column(nullable = false)
     private String username;
