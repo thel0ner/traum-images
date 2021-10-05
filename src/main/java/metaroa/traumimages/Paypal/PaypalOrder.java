@@ -36,6 +36,16 @@ public class PaypalOrder {
     @Column(nullable = false)
     private boolean isCompleted;
 
+    @Column(nullable = false)
+    private String paypalPaymentId;
+
+    @Column(nullable = false)
+    private Long planId;
+
+    public String getPaypalPaymentId() {
+        return paypalPaymentId;
+    }
+
     public Long getPrice() {
         return price;
     }
@@ -46,6 +56,10 @@ public class PaypalOrder {
 
     public Long getId() {
         return id;
+    }
+
+    public Long getPlanId() {
+        return planId;
     }
 
     public String getHref() {
@@ -82,5 +96,13 @@ public class PaypalOrder {
 
     public void setApprovedOrderId(String approvedOrderId) {
         this.approvedOrderId = approvedOrderId;
+    }
+
+    public void setPaypalPaymentId(String paypalPaymentId) {
+        this.paypalPaymentId = paypalPaymentId;
+    }
+
+    public void setPlanId(Long planId) {
+        this.planId = planId;
     }
 }

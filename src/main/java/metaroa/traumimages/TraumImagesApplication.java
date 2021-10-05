@@ -33,7 +33,8 @@ public class TraumImagesApplication {
 					.antMatchers(HttpMethod.PUT,"/modifyPlan/*").hasAnyAuthority("Financial","SuperAdmin")
 					.antMatchers(HttpMethod.POST, "/newPlan").hasAnyAuthority("Financial","SuperAdmin")
 					.antMatchers(HttpMethod.DELETE,"/deletePlan/*").hasAnyAuthority("Financial","SuperAdmin")
-					.antMatchers(HttpMethod.POST,"/assignRole").hasAnyAuthority("SuperAdmin");
+					.antMatchers(HttpMethod.POST,"/assignRole").hasAnyAuthority("SuperAdmin")
+					.antMatchers(HttpMethod.POST,"/placeOrder").hasAnyAuthority("OrdinaryUser");
 		}
 	}
 }

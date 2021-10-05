@@ -19,6 +19,9 @@ public class PaypalCredentials {
     @Value("$(paypal.client.currency)")
     private String currency;
 
+    @Value("$(paypal.client.accesstoken)")
+    private String accessToken;
+
     public String getSecret() {
         return secret;
     }
@@ -33,6 +36,10 @@ public class PaypalCredentials {
 
     public String getCancelURL() {
         return cancelURL;
+    }
+
+    public String getAccessToken() {
+        return accessToken;
     }
 
     public String getClientId() {
