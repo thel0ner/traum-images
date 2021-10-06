@@ -37,6 +37,9 @@ public class PaypalOrder {
     private boolean isCompleted;
 
     @Column(nullable = false)
+    private PaypalPaymentStatus status;
+
+    @Column(nullable = false)
     private String paypalPaymentId;
 
     @Column(nullable = false)
@@ -52,6 +55,10 @@ public class PaypalOrder {
 
     public boolean getIsCompleted(){
         return isCompleted;
+    }
+
+    public PaypalPaymentStatus getStatus() {
+        return status;
     }
 
     public Long getId() {
@@ -104,5 +111,9 @@ public class PaypalOrder {
 
     public void setPlanId(Long planId) {
         this.planId = planId;
+    }
+
+    public void setStatus(PaypalPaymentStatus status) {
+        this.status = status;
     }
 }

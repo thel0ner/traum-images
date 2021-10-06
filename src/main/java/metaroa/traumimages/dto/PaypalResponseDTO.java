@@ -1,9 +1,12 @@
 package metaroa.traumimages.dto;
 
+import metaroa.traumimages.Paypal.PaypalPaymentStatus;
+
 public class PaypalResponseDTO {
     private String id;
     private Long amount;
     private String currencyCode;
+    private PaypalPaymentStatus status;
 
     public Long getAmount() {
         return amount;
@@ -17,6 +20,10 @@ public class PaypalResponseDTO {
         return id;
     }
 
+    public PaypalPaymentStatus getStatus() {
+        return status;
+    }
+
     public void setId(String id) {
         this.id = id;
     }
@@ -27,5 +34,9 @@ public class PaypalResponseDTO {
 
     public void setCurrencyCode(String currencyCode) {
         this.currencyCode = currencyCode;
+    }
+
+    public void setStatus(PaypalPaymentStatus status) {
+        this.status = status;
     }
 }
